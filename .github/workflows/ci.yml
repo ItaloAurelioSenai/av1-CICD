@@ -6,7 +6,7 @@ on:
   pull_request:
 
 env:
-  GLOBAL_VAR: "exemplo-variavel"
+  GLOBAL_VAR: "Cuidado com as forigas telepáticas!"
 
 jobs:
   validate:
