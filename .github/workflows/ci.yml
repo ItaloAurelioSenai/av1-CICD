@@ -38,4 +38,4 @@ jobs:
           echo "Build concluído."
       - name: Mostrar secret (mascarado)
         run: |
-          echo "Mensagem secreta : $SECRET_MESSAGE"
+          echo "Mensagem secreta: $SECRET_MESSAGE"
