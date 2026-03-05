@@ -1,0 +1,39 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+
+env:
+  GLOBAL_VAR: "exemplo-variavel"
+
+jobs:
+  validate:
+    name: Validar código
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Print variável global
+        run: echo "Variável global: $GLOBAL_VAR"
+      - name: Validar (simulado)
+        run: |
+          echo "Iniciando validação..."
+          # Aqui rodariam linters / testes reais
+          echo "Validação concluída."
+
+  build:
+    name: Simular Build
+    needs: validate
+    runs-on: ubuntu-latest
+    env:
+      SECRET_MESSAGE: ${{ secrets.SECRET_MESSAGE }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Simular build
+        run: |
+          echo "Simulando build..."
+          sleep 1
+          echo "Build concluído."
+      - name: Mostrar secret (mascarado)
+        run: echo "Mensagem secreta: $SECRET_MESSAGE"
